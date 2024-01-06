@@ -11,11 +11,11 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-import { chart_data } from "../constants/data";
+import { chart_data } from "../../constants/data";
 
 const Barchart = () => {
   return (
-    <BarChart width={300} height={300} data={chart_data}>
+    <BarChart width={500} height={300} data={chart_data}>
       <XAxis dataKey="name" />
       <YAxis dataKey="price" />
       <Bar dataKey="price" fill="#8884d8" />

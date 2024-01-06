@@ -1,5 +1,22 @@
 // navigation constants starts from here
 // logo
+const icon = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth="1.5"
+    stroke="currentColor"
+    className="text-white"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941"
+    />
+  </svg>
+);
+
 const logo = "analytics dashboard";
 import fg from "../assets/Usa.jpg";
 // navigation sections
@@ -55,7 +72,7 @@ const navLinks = [
     name: "marketplace",
   },
   {
-    path: "tables",
+    path: "/tables",
     icon: (
       <svg
         width="24"
@@ -130,7 +147,7 @@ const navLinks = [
     name: "profile",
   },
   {
-    path: "signin",
+    path: "/signin",
     icon: (
       <svg
         width="24"
@@ -152,7 +169,7 @@ const navLinks = [
         </defs>
       </svg>
     ),
-    name: "sign in",
+    name: "signin",
   },
 ];
 
@@ -216,16 +233,33 @@ const currencies = [
         </defs>
       </svg>
     ),
-    name: "Spend this month",
+    name: "Spend / month",
     cash: "$642.39",
   },
   {
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth="1.5"
+        stroke="currentColor"
+        className="h-6 w-6"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"
+          fill="#4318FF"
+        />
+      </svg>
+    ),
     name: "Sales",
     cash: "$574.34",
   },
   {
     name: "Your balance",
-    cash: "1,000",
+    cash: "$1,000",
     flag: fg,
   },
   {
@@ -237,7 +271,7 @@ const currencies = [
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clip-path="url(#clip0_201_2530)">
+        <g clipPath="url(#clip0_201_2530)">
           <path
             d="M25.6663 6.04337L12.3547 19.3667L7.40801 14.42L9.05301 12.775L12.3547 16.0767L24.0213 4.41004L25.6663 6.04337ZM13.9997 23.3334C8.85467 23.3334 4.66634 19.145 4.66634 14C4.66634 8.85504 8.85467 4.66671 13.9997 4.66671C15.8313 4.66671 17.5463 5.20337 18.993 6.12504L20.6847 4.43337C18.783 3.11504 16.4847 2.33337 13.9997 2.33337C7.55967 2.33337 2.33301 7.56004 2.33301 14C2.33301 20.44 7.55967 25.6667 13.9997 25.6667C16.018 25.6667 17.9197 25.1534 19.5763 24.2434L17.8263 22.4934C16.6597 23.03 15.3647 23.3334 13.9997 23.3334ZM22.1663 17.5H18.6663V19.8334H22.1663V23.3334H24.4997V19.8334H27.9997V17.5H24.4997V14H22.1663V17.5Z"
             fill="blue"
@@ -262,7 +296,7 @@ const currencies = [
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clip-path="url(#clip0_201_2533)">
+        <g clipPath="url(#clip0_201_2533)">
           <path
             d="M16.2503 1.08331H4.33366C3.14199 1.08331 2.16699 2.05831 2.16699 3.24998V17.3333C2.16699 17.9291 2.65449 18.4166 3.25033 18.4166C3.84616 18.4166 4.33366 17.9291 4.33366 17.3333V4.33331C4.33366 3.73748 4.82116 3.24998 5.41699 3.24998H16.2503C16.8462 3.24998 17.3337 2.76248 17.3337 2.16665C17.3337 1.57081 16.8462 1.08331 16.2503 1.08331ZM16.8895 6.05581L22.122 11.2883C22.5228 11.6891 22.7503 12.2416 22.7503 12.8158V22.75C22.7503 23.9417 21.7753 24.9166 20.5837 24.9166H8.65616C7.46449 24.9166 6.50033 23.9417 6.50033 22.75L6.51116 7.58331C6.51116 6.39165 7.47533 5.41665 8.66699 5.41665H15.3512C15.9253 5.41665 16.4778 5.64415 16.8895 6.05581ZM16.2503 13H21.1253L15.167 7.04165V11.9166C15.167 12.5125 15.6545 13 16.2503 13Z"
             fill="#4318FF"
@@ -299,4 +333,4 @@ const chart_data = [
   },
 ];
 
-export { logo, navLinks, currencies, chart_data };
+export { icon, logo, navLinks, currencies, chart_data };

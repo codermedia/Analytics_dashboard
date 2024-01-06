@@ -1,4 +1,4 @@
-import { chart_data } from "../constants/data";
+import { chart_data } from "../../constants/data";
 import {
   LineChart,
   Line,

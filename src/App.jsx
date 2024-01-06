@@ -1,12 +1,10 @@
-import Sidebar from "./Components/Sidebar";
-import Home from "./Components/Home";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Tables from "./Components/Tables";
+import { Sidebar, Home, Tables, Signin, Profile } from "./Components";
 
 const Layout = () => {
   return (
     <div className="flex h-screen">
-      <div className="w-72">
+      <div className="w-72 flex-none">
         <Sidebar />
       </div>
       <div className="flex-auto bg-slate-50">
@@ -28,6 +26,14 @@ const router = createBrowserRouter([
       {
         path: "/tables",
         element: <Tables />,
+      },
+      {
+        path: "/signin",
+        element: <Signin />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
       },
     ],
   },
