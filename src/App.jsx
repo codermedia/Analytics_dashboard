@@ -3,7 +3,7 @@ import { Sidebar, Home, Tables, Signin, Profile } from "./Components";
 
 const Layout = () => {
   return (
-    <div className="flex h-screen">
+    <div className="flex h-auto overflow-y-auto">
       <div className="w-72 flex-none">
         <Sidebar />
       </div>

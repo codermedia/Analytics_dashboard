@@ -333,4 +333,24 @@ const chart_data = [
   },
 ];
 
-export { icon, logo, navLinks, currencies, chart_data };
+import projectImg from "../assets/blue.jpg";
+
+const projectList = [
+  {
+    img: projectImg,
+    title: "Technology behind the Blockchain",
+    description: "Project #1",
+  },
+  {
+    img: projectImg,
+    title: "Greatest way to a good Economy",
+    description: "Project #2",
+  },
+  {
+    img: projectImg,
+    title: "More essential tips for Burnout",
+    description: "Project #3",
+  },
+];
+
+export { icon, logo, navLinks, currencies, chart_data, projectList };
