@@ -18,6 +18,7 @@ const Barchart = () => {
     <BarChart width={500} height={300} data={chart_data}>
       <XAxis dataKey="name" />
       <YAxis dataKey="price" />
+      <Tooltip />
       <Bar dataKey="price" fill="#8884d8" />
     </BarChart>
   );
