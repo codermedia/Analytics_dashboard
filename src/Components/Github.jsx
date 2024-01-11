@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
 import { getRepo } from "../constants/data";
-import { MyContext } from "../contexts/MyContext";
+import { Context } from "../contexts/Context";
 import { Link, useLocation } from "react-router-dom";
 
 const Github = () => {
   const [repo, setRepo] = useState("");
-  const { dt, setDt } = useContext(MyContext);
+  const { dta } = useContext(Context);
+  const [dt, setDt] = dta;
 
   const handleSubmit = (e) => {
     e.preventDefault();

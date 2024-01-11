@@ -1,23 +1,31 @@
 // navigation constants starts from here
 // logo
-const icon = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth="1.5"
-    stroke="currentColor"
-    className="text-white"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941"
-    />
-  </svg>
+// const icon = (
+//   <svg
+//     xmlns="http://www.w3.org/2000/svg"
+//     fill="none"
+//     viewBox="0 0 24 24"
+//     strokeWidth="1.5"
+//     stroke="currentColor"
+//     className="text-white"
+//   >
+//     <path
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//       d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941"
+//     />
+//   </svg>
+// );
+
+const avatar = (
+  <img
+    src="https://cdn-icons-png.flaticon.com/512/147/147144.png"
+    alt="avatar"
+    className="h-10 w-10 object-cover"
+  />
 );
 
-const logo = "analytics dashboard";
+const logo = "Git Analytics";
 import fg from "../assets/Usa.jpg";
 // navigation sections
 const navLinks = [
@@ -46,6 +54,7 @@ const navLinks = [
     ),
     name: "dashboard",
   },
+
   {
     path: "/marketplace",
     icon: (
@@ -69,7 +78,7 @@ const navLinks = [
         </defs>
       </svg>
     ),
-    name: "marketplace",
+    name: "repositories",
   },
   {
     path: "/tables",
@@ -94,10 +103,35 @@ const navLinks = [
         </defs>
       </svg>
     ),
-    name: "tables",
+    name: "followers",
   },
+  // {
+  //   path: "/kanban",
+  //   icon: (
+  //     <svg
+  //       width="24"
+  //       height="24"
+  //       viewBox="0 0 24 24"
+  //       fill="none"
+  //       xmlns="http://www.w3.org/2000/svg"
+  //     >
+  //       <g clipPath="url(#clip0_201_2903)">
+  //         <path
+  //           d="M4 13H10C10.55 13 11 12.55 11 12V4C11 3.45 10.55 3 10 3H4C3.45 3 3 3.45 3 4V12C3 12.55 3.45 13 4 13ZM4 21H10C10.55 21 11 20.55 11 20V16C11 15.45 10.55 15 10 15H4C3.45 15 3 15.45 3 16V20C3 20.55 3.45 21 4 21ZM14 21H20C20.55 21 21 20.55 21 20V12C21 11.45 20.55 11 20 11H14C13.45 11 13 11.45 13 12V20C13 20.55 13.45 21 14 21ZM13 4V8C13 8.55 13.45 9 14 9H20C20.55 9 21 8.55 21 8V4C21 3.45 20.55 3 20 3H14C13.45 3 13 3.45 13 4Z"
+  //           fill="#A3AED0"
+  //         />
+  //       </g>
+  //       <defs>
+  //         <clipPath id="clip0_201_2903">
+  //           <rect width="24" height="24" fill="white" />
+  //         </clipPath>
+  //       </defs>
+  //     </svg>
+  //   ),
+  //   name: "kanban",
+  // },
   {
-    path: "/kanban",
+    path: "/github",
     icon: (
       <svg
         width="24"
@@ -106,20 +140,20 @@ const navLinks = [
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clipPath="url(#clip0_201_2903)">
+        <g clipPath="url(#clip0_201_2895)">
           <path
-            d="M4 13H10C10.55 13 11 12.55 11 12V4C11 3.45 10.55 3 10 3H4C3.45 3 3 3.45 3 4V12C3 12.55 3.45 13 4 13ZM4 21H10C10.55 21 11 20.55 11 20V16C11 15.45 10.55 15 10 15H4C3.45 15 3 15.45 3 16V20C3 20.55 3.45 21 4 21ZM14 21H20C20.55 21 21 20.55 21 20V12C21 11.45 20.55 11 20 11H14C13.45 11 13 11.45 13 12V20C13 20.55 13.45 21 14 21ZM13 4V8C13 8.55 13.45 9 14 9H20C20.55 9 21 8.55 21 8V4C21 3.45 20.55 3 20 3H14C13.45 3 13 3.45 13 4Z"
+            d="M18 8H17V6C17 3.24 14.76 1 12 1C9.24 1 7 3.24 7 6V8H6C4.9 8 4 8.9 4 10V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V10C20 8.9 19.1 8 18 8ZM12 17C10.9 17 10 16.1 10 15C10 13.9 10.9 13 12 13C13.1 13 14 13.9 14 15C14 16.1 13.1 17 12 17ZM9 8V6C9 4.34 10.34 3 12 3C13.66 3 15 4.34 15 6V8H9Z"
             fill="#A3AED0"
           />
         </g>
         <defs>
-          <clipPath id="clip0_201_2903">
+          <clipPath id="clip0_201_2895">
             <rect width="24" height="24" fill="white" />
           </clipPath>
         </defs>
       </svg>
     ),
-    name: "kanban",
+    name: "github checker",
   },
   {
     path: "/profile",
@@ -145,31 +179,6 @@ const navLinks = [
       </svg>
     ),
     name: "profile",
-  },
-  {
-    path: "/github",
-    icon: (
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g clipPath="url(#clip0_201_2895)">
-          <path
-            d="M18 8H17V6C17 3.24 14.76 1 12 1C9.24 1 7 3.24 7 6V8H6C4.9 8 4 8.9 4 10V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V10C20 8.9 19.1 8 18 8ZM12 17C10.9 17 10 16.1 10 15C10 13.9 10.9 13 12 13C13.1 13 14 13.9 14 15C14 16.1 13.1 17 12 17ZM9 8V6C9 4.34 10.34 3 12 3C13.66 3 15 4.34 15 6V8H9Z"
-            fill="#A3AED0"
-          />
-        </g>
-        <defs>
-          <clipPath id="clip0_201_2895">
-            <rect width="24" height="24" fill="white" />
-          </clipPath>
-        </defs>
-      </svg>
-    ),
-    name: "github checker",
   },
   {
     path: "/settings",
@@ -229,7 +238,7 @@ const currencies = [
         </defs>
       </svg>
     ),
-    name: "Earnings",
+    name: "Sarath",
     cash: "$350.4",
   },
   {
@@ -259,7 +268,7 @@ const currencies = [
         </defs>
       </svg>
     ),
-    name: "Spend / month",
+    name: "Total commits",
     cash: "$642.39",
   },
   {
@@ -280,11 +289,11 @@ const currencies = [
         />
       </svg>
     ),
-    name: "Sales",
+    name: "Followers",
     cash: "$574.34",
   },
   {
-    name: "Your balance",
+    name: "Following",
     cash: "$1,000",
     flag: fg,
   },
@@ -310,7 +319,7 @@ const currencies = [
         </defs>
       </svg>
     ),
-    name: "New Tasks",
+    name: "Created at",
     count: 154,
   },
   {
@@ -335,7 +344,7 @@ const currencies = [
         </defs>
       </svg>
     ),
-    name: "Total Projects",
+    name: "Total repositories",
     count: 2935,
   },
 ];
@@ -383,4 +392,15 @@ const getRepo = (repository) => {
   return repository;
 };
 
-export { icon, logo, navLinks, currencies, chart_data, projectList, getRepo };
+const months = [];
+
+export {
+  avatar,
+  logo,
+  navLinks,
+  currencies,
+  chart_data,
+  projectList,
+  getRepo,
+  months,
+};

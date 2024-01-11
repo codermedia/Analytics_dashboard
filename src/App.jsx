@@ -10,16 +10,16 @@ import {
   Signup,
 } from "./components";
 import Signout from "./components/Signout";
-import { MyContext } from "./contexts/MyContext";
+import { Context } from "./contexts/Context";
 import { useState } from "react";
 
 const Layout = () => {
   return (
     <div className="relative flex select-none">
-      <div className="fixed z-50 h-screen w-72 flex-none overflow-y-auto bg-white">
+      <div className="fixed z-50 h-screen w-72 flex-none overflow-y-auto bg-slate-50">
         <Sidebar />
       </div>
-      <div className="flex h-screen w-full flex-col overflow-y-auto bg-slate-50 pl-72">
+      <div className="flex h-screen w-full flex-col overflow-y-auto  pl-72">
         {/* <Navbar /> */}
         {/* <div className="border-b-8 border-b-white"></div> */}
         <Outlet />
@@ -37,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/marketplace",
+        element: <Tables />,
       },
       {
         path: "/tables",
@@ -70,12 +74,16 @@ const router = createBrowserRouter([
   // },
 ]);
 const App = () => {
-  const [dt, setDt] = useState("EmperorSarath");
+  const [dt, setDt] = useState({});
+  const [user, setUser] = useState("");
+
   return (
     <div className="App">
-      <MyContext.Provider value={{ dt, setDt }}>
+      <Context.Provider
+        value={{ dta: [dt, setDt], repo_user: [user, setUser] }}
+      >
         <RouterProvider router={router} />
-      </MyContext.Provider>
+      </Context.Provider>
     </div>
   );
 };

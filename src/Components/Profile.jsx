@@ -4,7 +4,7 @@ import ProfileCard from "./ProfileCard";
 import { getRepo, projectList } from "../constants/data";
 import Skeleton from "react-loading-skeleton";
 import { fetchProfile, fetchRepo } from "../api/responses";
-import { MyContext } from "../contexts/MyContext";
+import { Context } from "../contexts/Context";
 import projectbg from "../assets/project-bg.jpg";
 
 const Profile = () => {
@@ -12,7 +12,8 @@ const Profile = () => {
   const [data, setData] = useState({});
   const [repodata, setRepoData] = useState({});
 
-  const { dt } = useContext(MyContext);
+  const { dta } = useContext(Context);
+  const [dt] = dta;
 
   let isProfileRendered = useRef(false);
 
@@ -29,7 +30,7 @@ const Profile = () => {
     if (isProfileRendered.current === false) {
       setTimeout(() => {
         setLoading(false);
-      }, 500);
+      }, 1000);
 
       preload();
 
