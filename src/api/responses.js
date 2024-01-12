@@ -1,5 +1,5 @@
 const fetchProfile = async (name) => {
-  const api_url = import.meta.env.VITE_APP_GITHUB_API_URL + name;
+  const api_url = import.meta.env.VITE_APP_GITHUB_PROFILE_URL + name;
   try {
     const res = await fetch(api_url);
 
@@ -17,7 +17,7 @@ const fetchProfile = async (name) => {
 };
 
 const fetchRepo = async (name) => {
-  const api_url = import.meta.env.VITE_APP_GITHUB_API_URL + name + "/repos";
+  const api_url = import.meta.env.VITE_APP_GITHUB_PROFILE_URL + name + "/repos";
   try {
     const res = await fetch(api_url);
     if (!res.ok) {

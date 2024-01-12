@@ -12,6 +12,7 @@ import {
 import Signout from "./components/Signout";
 import { Context } from "./contexts/Context";
 import { useState } from "react";
+import Searchbox from "./components/search/Searchbox";
 
 const Layout = () => {
   return (
