@@ -7,12 +7,11 @@ import {
   Github,
   Profile,
   Login,
-  Signup,
 } from "./components";
-import Signout from "./components/Signout";
 import { Context } from "./contexts/Context";
 import { useState } from "react";
 import Searchbox from "./components/search/Searchbox";
+import Repositories from "./components/Repositories";
 
 const Layout = () => {
   return (
@@ -40,8 +39,8 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/marketplace",
-        element: <Tables />,
+        path: "/repositories",
+        element: <Repositories />,
       },
       {
         path: "/tables",
@@ -65,23 +64,15 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
-  // {
-  //   path: "/sign-up",
-  //   element: <Signup />,
-  // },
-  // {
-  //   path: "/sign-out",
-  //   element: <Signout />,
-  // },
 ]);
 const App = () => {
-  const [dt, setDt] = useState({});
-  const [user, setUser] = useState("");
+  const [dt, setDt] = useState("codermedia");
+  const [user_name, setUsername] = useState("codermedia");
 
   return (
     <div className="App">
       <Context.Provider
-        value={{ dta: [dt, setDt], repo_user: [user, setUser] }}
+        value={{ dta: [dt, setDt], repo_user: [user_name, setUsername] }}
       >
         <RouterProvider router={router} />
       </Context.Provider>

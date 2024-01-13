@@ -2,13 +2,14 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { Context } from "../../contexts/Context";
 import { fetchProfile } from "../../api/responses";
 
-const Searchbox = (props) => {
+const Searchbox = () => {
   const [user, setUser] = useState("");
-  const [user_selected, setUser_selected] = useState("");
   const [options, setOptions] = useState([]);
 
-  const { dta } = useContext(Context);
+  const { repo_user } = useContext(Context);
+  const [user_name, setUsername] = repo_user;
 
+  const { dta } = useContext(Context);
   const [dt, setDt] = dta;
 
   const searchList = async (user) => {
@@ -44,25 +45,34 @@ const Searchbox = (props) => {
   };
 
   const handleUserChange = (value) => {
-    setUser_selected(value);
+    setUser(value);
+
     setOptions([]);
   };
-
+  // console.log(user);
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // setUsername(user);
+    setDt(user);
+
     //setUser(input);
     console.log(user);
+    // try {
+    //   const res = await fetchProfile(user);
+    //   if (!res.ok) {
+    //     throw new Error("Failed to fetch data");
+    //   }
 
-    const res = await fetchProfile(user);
+    //   const data = await res.json();
 
-    if (!res.ok) {
-      throw new Error("Failed to fetch data");
-    }
-
-    const data = await res.json();
-
-    setDt(data);
+    //   setDt(data);
+    // } catch (err) {
+    //   console.log(err);
+    // }
   };
+
+  // console.log(user_name);
 
   return (
     <section>
@@ -76,14 +86,10 @@ const Searchbox = (props) => {
           placeholder="Search your profile here"
           autoComplete="off"
           className="flex h-10 w-[300px] items-center rounded-l-full border-2 border-r-0 border-t-2 p-2 px-3 text-sm text-slate-500 focus:border-slate-300 focus:outline-none max-md:hidden"
-          value={user_selected || user}
+          value={user}
           onChange={handleChange}
-          onFocus={() => {
-            setUser(user_selected);
-            setUser_selected("");
-          }}
         />
-        <button title="Search">
+        <button title="Search" type="submit">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -105,22 +111,22 @@ const Searchbox = (props) => {
           {Object.entries(options).map((item, index) => {
             return (
               <div
-                className="my-3 flex items-center gap-x-5 rounded-full bg-slate-50 p-2 px-3"
+                className="my-2 flex w-full items-center  rounded-full bg-slate-50 p-2 px-3"
                 id="user"
                 key={index}
               >
-                <img
-                  src={item[1].avatar_url}
-                  className="h-8 w-8 rounded-full"
-                />
-                <li key={index}>
-                  <button
-                    className="w-full text-left"
-                    onClick={() => handleUserChange(item[1].login)}
-                  >
+                <button
+                  className="w-full"
+                  onClick={() => handleUserChange(item[1].login)}
+                >
+                  <li key={index} className="flex items-center gap-x-5">
+                    <img
+                      src={item[1].avatar_url}
+                      className="h-8 w-8 rounded-full"
+                    />
                     {item[1].login}
-                  </button>
-                </li>
+                  </li>
+                </button>
               </div>
             );
           })}
