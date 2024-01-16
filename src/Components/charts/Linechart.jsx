@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { ch_data } from "./chartData";
+import { ch_data } from "./ChartData";
 import { Context } from "../../contexts/Context";
 
 import {
