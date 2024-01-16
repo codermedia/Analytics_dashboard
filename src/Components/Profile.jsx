@@ -4,8 +4,6 @@ import ProfileCard from "./ProfileCard";
 import Skeleton from "react-loading-skeleton";
 import { fetchProfile, fetchRepo } from "../api/responses";
 import { Context } from "../contexts/Context";
-import projectbg from "../assets/project-bg.jpg";
-import Searchbox from "./search/Searchbox";
 
 const Profile = () => {
   const [loading, setLoading] = useState(true);
@@ -69,31 +67,33 @@ const Profile = () => {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 py-5">
+          <div className="grid grid-cols-1 pt-5">
             <ProfileCard data={data} />
 
-            <div className="mt-4 border-2 bg-white p-5">
-              All Projects
-              <div className="mt-5 flex flex-col">
-                <h1>
-                  Here you can find more details about your projects. Keep you
-                  user engaged by providing meaningful information.
-                </h1>
-                <div className="my-3 flex flex-col gap-x-5 gap-y-5">
+            <div className="mt-4 w-full rounded-lg border-2">
+              <span className="block bg-slate-100 py-5 text-center text-[17px] font-semibold text-slate-900">
+                Recent projects
+              </span>
+              <div className="my-2 flex flex-col p-5 py-3">
+                <span className="my-2 text-[16px] font-semibold text-slate-700">
+                  Here you can find more details about your projects.
+                </span>
+                <div className="my-2 flex max-h-[120px] flex-col gap-x-5 gap-y-5 overflow-y-auto">
                   {Array.from(repodata)
                     .slice(0, 4)
                     .map((item, index) => (
-                      <div key={index} className="flex items-center gap-x-5">
-                        <img
-                          src={projectbg}
-                          alt=""
-                          className="h-20 w-20 rounded-lg object-cover"
-                        />
-                        <div className="flex w-full flex-col">
-                          <span className="text-[16px]">{item.name}</span>
-                          <div className="flex items-center gap-x-3">
-                            <span>Language used : {item.language}</span>
-                            <span>Visibility : {item.visibility}</span>
+                      <div key={index} className="flex items-start gap-x-5">
+                        <span className="text-[16px] font-semibold text-slate-900">
+                          {index + 1}.
+                        </span>
+                        <div className="flex w-full flex-col justify-center">
+                          <span className="text-[16px] font-semibold capitalize text-slate-900">
+                            {item.name}
+                          </span>
+                          <div className="flex items-center gap-x-3 text-slate-600">
+                            <span>
+                              Language used : {item.language || "N/A"}
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -101,12 +101,6 @@ const Profile = () => {
                 </div>
               </div>
             </div>
-            {/* <div className="my-3 mr-3 rounded-lg bg-indigo-500 p-5">
-              <h1>Storage</h1>
-            </div>
-            <div className="my-3 mr-3 rounded-lg bg-indigo-500 p-5">
-              <h1>Storage</h1>
-            </div> */}
           </div>
         </div>
       )}

@@ -52,7 +52,7 @@ const Sidebar = () => {
           </li>
         ))}
       </ul>
-      <div className="border-b-8 border-b-white"></div>
+      {/* <div className="border-b-8 border-b-white"></div> */}
     </section>
   );
 };

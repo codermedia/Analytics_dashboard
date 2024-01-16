@@ -2,8 +2,8 @@ import bg from "../assets/blue.jpg";
 
 const ProfileCard = ({ data }) => {
   return (
-    <div>
-      <div className="border-2 border-slate-100 bg-white p-5">
+    <section>
+      <div className="rounded-lg border-2 border-slate-100 bg-white p-5">
         <div className="bg-url relative mx-auto flex h-24 justify-center">
           <img src={bg} alt="" className="w-full object-cover" />
           <img
@@ -33,7 +33,7 @@ const ProfileCard = ({ data }) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

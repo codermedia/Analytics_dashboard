@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { ch_data } from "./ChartData";
+import { ch_data } from "./chartData";
 import { Context } from "../../contexts/Context";
 
 import {
@@ -27,13 +27,17 @@ const Linechart = () => {
   }, [dt]);
 
   return (
-    <LineChart width={700} height={300} data={plotdata}>
-      <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-      <XAxis dataKey="month" label="month" minTickGap={50} />
-      <YAxis label="count" minTickGap={50} />
+    <LineChart
+      width={560}
+      height={350}
+      data={plotdata}
+      className="rounded-lg bg-slate-50"
+    >
+      <XAxis dataKey="month" label="Month" minTickGap={50} />
+      <YAxis label="Count" minTickGap={50} />
       <Line type="monotone" dataKey="month" stroke="#8884d8" />
       <Line type="monotone" dataKey="count" stroke="#82ca9d" />
-      <Tooltip position={{ x: 80, y: 15 }} />
+      <Tooltip />
     </LineChart>
   );
 };

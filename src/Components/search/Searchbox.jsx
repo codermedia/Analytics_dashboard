@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Context } from "../../contexts/Context";
+import { fetchUsers } from "../../api/responses";
 
 const Searchbox = () => {
   const [user, setUser] = useState("");
@@ -12,22 +13,10 @@ const Searchbox = () => {
 
   const searchList = async (user) => {
     try {
-      const res = await fetch(
-        import.meta.env.VITE_APP_GITHUB_API_URL +
-          "search/users?q=" +
-          user +
-          "&per_page=3",
-      );
+      const res = await fetchUsers(user);
 
-      if (!res.ok) {
-        throw new Error("Failed to fetch data");
-      }
-
-      //new Promise((resolve) => setTimeout(resolve, 1000));
-      const data = await res.json();
-
-      setOptions(data.items);
-      setCount(data.total_count);
+      setOptions(res.items);
+      setCount(res.total_count);
     } catch (err) {
       console.log(err);
     }
@@ -35,6 +24,7 @@ const Searchbox = () => {
 
   const handleChange = (e) => {
     setUser(e.target.value);
+    setCount(e.target.value.length);
   };
 
   const handleUserChange = (value) => {
@@ -98,11 +88,11 @@ const Searchbox = () => {
         </button>
       </form>
       {options && user && (
-        <ul className="absolute my-2 flex w-[300px] flex-col justify-center">
+        <ul className="absolute my-2 flex w-[300px] flex-col justify-center rounded-xl bg-slate-100">
           {Object.entries(options).map((item, index) => {
             return (
               <div
-                className="my-2 flex w-full items-center rounded-full bg-slate-50 p-2 px-3"
+                className="my-2 flex w-full items-center rounded-full bg-slate-100 p-2 px-3"
                 key={index}
               >
                 <button
@@ -122,7 +112,7 @@ const Searchbox = () => {
           })}
         </ul>
       )}
-      {count == 0 && user.length > 4 && (
+      {count == 0 && user.length > 0 && (
         <div className="absolute my-2 flex w-[300px] items-center gap-x-2 rounded-full bg-slate-50 p-2 px-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -138,7 +128,7 @@ const Searchbox = () => {
               d="M15.182 16.318A4.486 4.486 0 0 0 12.016 15a4.486 4.486 0 0 0-3.198 1.318M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z"
             />
           </svg>
-          <span className="text-base text-slate-700">No profiles found</span>
+          <span className="text-slate-700">No profiles found</span>
         </div>
       )}
     </section>

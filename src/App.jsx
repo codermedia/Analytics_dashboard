@@ -7,6 +7,7 @@ import {
   Login,
   Repositories,
   Followers,
+  Following,
 } from "./components";
 import { Context } from "./contexts/Context";
 
@@ -42,12 +43,12 @@ const router = createBrowserRouter([
         element: <Followers />,
       },
       {
-        path: "/profile",
-        element: <Profile />,
+        path: "/following",
+        element: <Following />,
       },
       {
-        path: "/settings",
-        element: <span>Settings</span>,
+        path: "/profile",
+        element: <Profile />,
       },
     ],
   },

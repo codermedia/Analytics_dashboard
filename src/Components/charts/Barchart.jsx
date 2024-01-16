@@ -1,45 +1,37 @@
-import React, { useEffect, useRef, useState } from "react";
-import {
-  BarChart,
-  Bar,
-  Cell,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
+import { useContext, useEffect, useState } from "react";
+import { BarChart, Bar, XAxis, YAxis, Tooltip } from "recharts";
 
-import { ch_data } from "./ChartData";
+import { ch_data } from "./chartData";
 
-import { chart_data } from "../../constants/data";
+import { Context } from "../../contexts/Context";
 
 const Barchart = () => {
   const [plotdata, setplotdata] = useState({});
+
+  const { dta } = useContext(Context);
+  const [dt] = dta;
   const createData = async () => {
-    setplotdata(await ch_data("EmperorSarath"));
+    setplotdata(await ch_data(dt));
   };
 
-  let isProfileRendered = useRef(false);
+  console.log(plotdata);
+
   useEffect(() => {
-    if (isProfileRendered.current === false) {
-      createData();
-      //preload();
+    createData();
+  }, [dt]);
 
-      console.log(isProfileRendered.current);
-
-      return () => {
-        isProfileRendered.current = true;
-      };
-    }
-  }, []);
   return (
-    <BarChart width={500} height={300} data={plotdata}>
-      <XAxis dataKey="month" label={"month"} />
-      <YAxis dataKey="count" label={"count"} />
+    <BarChart
+      width={560}
+      height={350}
+      data={plotdata}
+      className="rounded-lg bg-slate-50"
+    >
+      <XAxis dataKey="month" label="Month" />
+      <YAxis dataKey="count" label="Count" />
       <Tooltip />
-      <Bar dataKey="count" fill="#8884d8" />
+      <Bar dataKey="month" fill="#82ca9d" />
+      <Bar dataKey="count" stroke="#82ca9d" />
     </BarChart>
   );
 };
