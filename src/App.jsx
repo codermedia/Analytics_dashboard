@@ -8,7 +8,7 @@ import {
   Repositories,
   Followers,
   Following,
-} from "./components";
+} from "./Components";
 import { Context } from "./contexts/Context";
 
 const Layout = () => {
